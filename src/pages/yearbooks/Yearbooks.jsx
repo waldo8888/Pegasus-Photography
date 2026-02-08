@@ -127,7 +127,7 @@ const Yearbooks = () => {
                                         <Button variant="outlined" color="primary">Explore Templates</Button>
                                     </Grid>
                                     <Grid item xs={12} md={6}>
-                                        <Box component="img" src="https://placehold.co/800x500/eee/333?text=Easy+Software+Interface" sx={{ width: '100%', borderRadius: 2, boxShadow: 4 }} />
+                                        <Box component="img" src="/images/yearbook_elementary_software.png" sx={{ width: '100%', borderRadius: 2, boxShadow: 4 }} />
                                     </Grid>
                                 </Grid>
                             )}
@@ -141,7 +141,7 @@ const Yearbooks = () => {
                                         <Button variant="outlined" color="primary">View Features</Button>
                                     </Grid>
                                     <Grid item xs={12} md={6}>
-                                        <Box component="img" src="https://placehold.co/800x500/333/fff?text=Advanced+Software+Interface" sx={{ width: '100%', borderRadius: 2, boxShadow: 4 }} />
+                                        <Box component="img" src="/images/yearbook_pro_software.png" sx={{ width: '100%', borderRadius: 2, boxShadow: 4 }} />
                                     </Grid>
                                 </Grid>
                             )}

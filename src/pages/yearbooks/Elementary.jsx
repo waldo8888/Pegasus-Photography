@@ -77,7 +77,7 @@ const Elementary = () => {
                 <Container>
                     <Grid container spacing={8} alignItems="center">
                         <Grid item xs={12} md={6}>
-                            <Box component="img" src="https://placehold.co/600x400/222/white?text=Template+Library" sx={{ width: '100%', borderRadius: 4 }} />
+                            <Box component="img" src="/images/yearbook_elementary_software.png" sx={{ width: '100%', borderRadius: 4 }} />
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <Typography variant="overline" sx={{ color: 'grey.500', fontWeight: 700 }}>Creativity Unlocked</Typography>
@@ -107,7 +107,7 @@ const Elementary = () => {
                             <ReasonCard title="No Shipping Fees" desc="We deliver directly to your school at no extra cost." />
                         </Grid>
                         <Grid item xs={12} md={4}>
-                            <ReasonCard title="Price Match" desc="We'll match or beat any comparable quote." />
+                            <ReasonCard title="Competitive Rates" desc="Quality yearbooks at rates that fit school budgets. Contact us for a custom quote." />
                         </Grid>
                     </Grid>
                 </Container>

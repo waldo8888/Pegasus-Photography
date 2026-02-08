@@ -114,7 +114,7 @@ const Secondary = () => {
                             </Stack>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <Box component="img" src="https://placehold.co/600x400/eee/333?text=Online+Store" sx={{ width: '100%', borderRadius: 4, boxShadow: 4 }} />
+                            <Box component="img" src="/images/yearbook_pro_software.png" sx={{ width: '100%', borderRadius: 4, boxShadow: 4 }} />
                         </Grid>
                     </Grid>
                 </Container>
@@ -125,7 +125,7 @@ const Secondary = () => {
                 <Container maxWidth="md">
                     <Typography variant="h3" gutterBottom fontWeight={800}>Upgrade Your Yearbook</Typography>
                     <Typography variant="h6" sx={{ opacity: 0.9, mb: 4, fontWeight: 400 }}>
-                        Switch to Pegasus for better quality, better support, and better prices.
+                        Switch to Pegasus for better quality, better support, and better results.
                     </Typography>
                     <Button variant="contained" color="white" sx={{ color: 'secondary.main', fontWeight: 700, px: 4 }}>
                         Get a Proposal
