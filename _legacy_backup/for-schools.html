@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pegasus School Photography - Comprehensive school photography services including portraits, events, athletics, and school culture documentation.">
+    <title>For Schools | Pegasus School Images</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Schools Page Specific Styles */
+        .schools-hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, var(--color-gray-900), var(--color-black));
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 120px;
+        }
+
+        .schools-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('images/school-hero.jpg') center/cover;
+            opacity: 0.4;
+            mask-image: linear-gradient(to left, #000, transparent);
+            -webkit-mask-image: linear-gradient(to left, #000, transparent);
+        }
+
+        .schools-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 650px;
+        }
+
+        .schools-hero-content h1 {
+            font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+            color: var(--color-white);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .schools-hero-content p {
+            font-size: var(--text-xl);
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-8);
+        }
+
+        /* Services Grid */
+        .school-services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-8);
+        }
+
+        .school-service-card {
+            background: var(--color-white);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-base);
+        }
+
+        .school-service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .school-service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .school-service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .school-service-card:hover .school-service-image img {
+            transform: scale(1.05);
+        }
+
+        .school-service-content {
+            padding: var(--spacing-6);
+        }
+
+        .school-service-content h3 {
+            font-size: var(--text-xl);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .school-service-content p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-4);
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-16);
+            align-items: center;
+        }
+
+        .benefits-content h2 {
+            font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: var(--spacing-4);
+            padding: var(--spacing-4);
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+        }
+
+        .benefit-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: var(--color-primary);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+        }
+
+        .benefit-text h4 {
+            font-size: var(--text-lg);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .benefit-text p {
+            color: var(--color-gray-600);
+            font-size: var(--text-sm);
+        }
+
+        .benefits-image {
+            position: relative;
+        }
+
+        .benefits-image img {
+            width: 100%;
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .benefits-image::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: linear-gradient(135deg, var(--color-primary), transparent);
+            border-radius: var(--radius-2xl);
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        /* Partner Logos */
+        .partners-section {
+            background: var(--color-gray-100);
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-12);
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+
+        .partner-logo {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--color-gray-500);
+            font-family: var(--font-display);
+        }
+
+        /* Contact Form */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-16);
+            align-items: start;
+        }
+
+        .contact-form {
+            background: var(--color-white);
+            padding: var(--spacing-8);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-6);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--color-gray-700);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-4);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-base);
+            font-family: inherit;
+            transition: border-color var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info h2 {
+            font-size: var(--text-3xl);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .contact-info>p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-4);
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-primary-light);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary-dark);
+        }
+
+        @media (max-width: 1024px) {
+            .school-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .school-services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schools-hero::before {
+                width: 100%;
+                opacity: 0.2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        📚 Partner with us for the 2025-2026 school year! <a href="#contact">Get a Quote →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-logo">
+                    <span>PEGASUS</span>
+                </a>
+
+                <div class="nav-menu" id="navMenu">
+                    <a href="about.html" class="nav-link">About Us</a>
+
+                    <!-- Photography Dropdown -->
+                    <div class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Photography
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="fall-portraits.html" class="dropdown-item">Fall Portraits</a>
+                            <a href="for-seniors.html" class="dropdown-item">Senior Graduation</a>
+                            <a href="kinder-grad.html" class="dropdown-item">Kinder & Junior Grad</a>
+                            <a href="university.html" class="dropdown-item">University/College Graduation</a>
+                            <a href="commencements.html" class="dropdown-item">Commencements</a>
+                        </div>
+                    </div>
+
+                    <!-- For Schools Dropdown -->
+                    <div class="nav-item">
+                        <a href="for-schools.html" class="nav-link dropdown-toggle active">
+                            For Schools
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="for-schools.html" class="dropdown-item"
+                                style="color:var(--color-primary); font-weight:600;">School Partnership</a>
+                            <a href="school-services.html" class="dropdown-item">School Services</a>
+                        </div>
+                    </div>
+
+                    <!-- Yearbooks Dropdown -->
+                    <div class="nav-item">
+                        <a href="yearbooks.html" class="nav-link dropdown-toggle">
+                            Yearbooks
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="yearbooks-elementary.html" class="dropdown-item">Elementary Yearbooks</a>
+                            <a href="yearbooks-secondary.html" class="dropdown-item">Secondary Yearbooks</a>
+                            <a href="yearbooks.html" class="dropdown-item">All Yearbooks</a>
+                        </div>
+                    </div>
+
+                    <!-- Apparel Dropdown -->
+                    <div class="nav-item">
+                        <a href="apparel.html" class="nav-link dropdown-toggle">
+                            Apparel
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="apparel.html" class="dropdown-item">Spirit Wear</a>
+                            <a href="team-uniforms.html" class="dropdown-item">Team Uniforms</a>
+                        </div>
+                    </div>
+
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                    <a href="contact.html" class="nav-cta">Contact</a>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="schools-hero">
+        <div class="container">
+            <div class="schools-hero-content">
+                <div class="hero-badge" style="margin-bottom: var(--spacing-6);">
+                    🏫 School Partners
+                </div>
+                <h1>Photography That Captures Your School's Story</h1>
+                <p>
+                    From class portraits to athletic events, we provide comprehensive photography
+                    services that document the memories and culture of your school community.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary btn-lg">Our Services</a>
+                    <a href="#contact" class="btn btn-outline btn-lg">Request Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Offer</span>
+                <h2 class="section-title">School Photography Services</h2>
+                <p class="section-description">
+                    Comprehensive photography solutions tailored to meet the unique needs of your school.
+                </p>
+            </div>
+
+            <div class="school-services-grid">
+                <article class="school-service-card">
+                    <div class="school-service-image">
+                        <img src="images/school-portraits.jpg" alt="School portraits">
+                    </div>
+                    <div class="school-service-content">
+                        <h3>School Portraits</h3>
+                        <p>
+                            Professional individual and class photos for students and staff.
+                            High-quality images parents love.
+                        </p>
+                        <a href="#contact" class="feature-card-link">
+                            Learn More
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="school-service-card" id="events">
+                    <div class="school-service-image">
+                        <img src="images/athletics.jpg" alt="Athletics photography">
+                    </div>
+                    <div class="school-service-content">
+                        <h3>Athletics & Events</h3>
+                        <p>
+                            Dynamic coverage of sports teams, games, and school events.
+                            Capture the energy and spirit of your students.
+                        </p>
+                        <a href="#contact" class="feature-card-link">
+                            Learn More
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="school-service-card" id="culture">
+                    <div class="school-service-image">
+                        <img src="images/school-culture.jpg" alt="School culture photography">
+                    </div>
+                    <div class="school-service-content">
+                        <h3>School Culture</h3>
+                        <p>
+                            Document the daily life, clubs, and special moments that make
+                            your school community unique.
+                        </p>
+                        <a href="#contact" class="feature-card-link">
+                            Learn More
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section" style="background: var(--color-gray-100);">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefits-content">
+                    <span class="section-tag">Why Pegasus</span>
+                    <h2>What Makes Us Different</h2>
+
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Trusted & Secure</h4>
+                                <p>Background-checked photographers and secure online galleries with privacy controls.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>On-Time Delivery</h4>
+                                <p>We guarantee delivery timelines so you're never waiting for important materials.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Experienced Team</h4>
+                                <p>15+ years working with schools of all sizes. We understand your needs.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                                    <line x1="1" y1="10" x2="23" y2="10" />
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Flexible Payment</h4>
+                                <p>Multiple payment options for parents. Easy ordering with no upfront costs to schools.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefits-image">
+                    <img src="images/school-team.jpg" alt="Our team working with schools">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section partners-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Partners</span>
+                <h2 class="section-title">Trusted by Schools Across the Region</h2>
+            </div>
+
+            <div class="partners-grid">
+                <span class="partner-logo">Lincoln USD</span>
+                <span class="partner-logo">Westview Schools</span>
+                <span class="partner-logo">Oak Valley District</span>
+                <span class="partner-logo">Central Academy</span>
+                <span class="partner-logo">Riverside ISD</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Get Started</span>
+                    <h2>Partner With Us</h2>
+                    <p>
+                        Ready to elevate your school's photography experience?
+                        Fill out the form and we'll get back to you within 24 hours.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>(555) 123-4567</strong>
+                                <p style="color: var(--color-gray-500); font-size: var(--text-sm);">Mon-Fri, 8am-5pm</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>schools@pegasus-si.com</strong>
+                                <p style="color: var(--color-gray-500); font-size: var(--text-sm);">We respond within 24
+                                    hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="schoolContactForm">
+                    <div class="form-group">
+                        <label for="schoolName">School Name *</label>
+                        <input type="text" id="schoolName" name="schoolName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactName">Your Name *</label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="services">Services Interested In</label>
+                        <select id="services" name="services">
+                            <option value="">Select a service...</option>
+                            <option value="portraits">School Portraits</option>
+                            <option value="athletics">Athletics & Events</option>
+                            <option value="culture">School Culture</option>
+                            <option value="all">All Services</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message"
+                            placeholder="Tell us about your school's photography needs..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Request Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo" style="color: white;">PEGASUS</a>
+                    <p>
+                        Premium school and senior portrait photography.
+                        Capturing moments that become cherished memories for generations.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
+                                    stroke-width="2" />
+                                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+                                <circle cx="18" cy="6" r="1.5" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Pinterest">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12c0 4.25 2.67 7.88 6.42 9.31-.09-.78-.17-1.98.04-2.83.19-.77 1.22-4.93 1.22-4.93s-.31-.62-.31-1.54c0-1.45.84-2.53 1.89-2.53.89 0 1.32.67 1.32 1.47 0 .9-.57 2.24-.87 3.49-.25 1.05.53 1.91 1.56 1.91 1.88 0 3.32-1.98 3.32-4.84 0-2.53-1.82-4.31-4.42-4.31-3.01 0-4.78 2.26-4.78 4.6 0 .91.35 1.89.79 2.42.09.11.1.2.07.31-.08.33-.26 1.05-.3 1.2-.05.19-.16.23-.37.14-1.39-.65-2.26-2.69-2.26-4.33 0-3.52 2.56-6.75 7.38-6.75 3.87 0 6.88 2.76 6.88 6.45 0 3.85-2.43 6.94-5.8 6.94-1.13 0-2.2-.59-2.56-1.29l-.7 2.66c-.25.97-.93 2.19-1.39 2.93.99.31 2.04.47 3.13.47 5.52 0 10-4.48 10-10S17.52 2 12 2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Services</h4>
+                    <div class="footer-links">
+                        <a href="for-seniors.html">Senior Portraits</a>
+                        <a href="for-schools.html">School Photography</a>
+                        <a href="for-schools.html#events">Events & Athletics</a>
+                        <a href="for-schools.html#culture">School Culture</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="about.html#team">Our Team</a>
+                        <a href="#careers">Careers</a>
+                        <a href="#press">Press</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-links">
+                        <a href="tel:+15551234567">(555) 123-4567</a>
+                        <a href="mailto:schools@pegasus-si.com">schools@pegasus-si.com</a>
+                        <a href="#locations">Find a Location</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Pegasus School Images. All rights reserved.</p>
+                <div class="footer-links" style="flex-direction: row; gap: 1.5rem;">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Form submission
+        document.getElementById('schoolContactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you within 24 hours.');
+            this.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pegasus Senior Portraits - Capture your unique story with stunning senior photography. Book your session today.">
+    <title>Senior Portraits | Pegasus School Images</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Senior Page Specific Styles */
+        .senior-hero {
+            min-height: 80vh;
+            background: var(--color-black);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .senior-hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-16);
+            align-items: center;
+        }
+
+        .senior-hero-text h1 {
+            font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+            color: var(--color-white);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .senior-hero-text p {
+            font-size: var(--text-xl);
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .senior-hero-image {
+            position: relative;
+        }
+
+        .senior-hero-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: var(--radius-2xl);
+        }
+
+        .senior-hero-image::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: linear-gradient(135deg, var(--color-primary), transparent);
+            border-radius: var(--radius-2xl);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-8);
+        }
+
+        .process-step {
+            text-align: center;
+            padding: var(--spacing-8);
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 24px;
+            height: 2px;
+            background: var(--color-gray-300);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .process-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--text-xl);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .process-step h3 {
+            font-size: var(--text-lg);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .process-step p {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+        }
+
+        /* Packages Section */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-8);
+        }
+
+        .package-card {
+            background: var(--color-white);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transition: all var(--transition-base);
+            border: 2px solid transparent;
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-primary);
+        }
+
+        .package-card.featured {
+            border-color: var(--color-primary);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.05));
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--spacing-2) var(--spacing-4);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+        }
+
+        .package-name {
+            font-size: var(--text-2xl);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .package-price {
+            font-size: var(--text-4xl);
+            font-family: var(--font-display);
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .package-features {
+            margin-bottom: var(--spacing-8);
+        }
+
+        .package-features li {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            padding: var(--spacing-3) 0;
+            color: var(--color-gray-700);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        /* Gallery Preview */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-4);
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-4);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-6);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-gray-900);
+            text-align: left;
+            transition: color var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            color: var(--color-primary);
+        }
+
+        .faq-answer {
+            padding: 0 var(--spacing-6) var(--spacing-6);
+            color: var(--color-gray-600);
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            font-size: var(--text-xl);
+            transition: transform var(--transition-fast);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 1024px) {
+            .senior-hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item:first-child {
+                grid-row: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        🎓 Now Booking 2026 Senior Portraits! <a href="#book">Book Now →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-logo">
+                    <span>PEGASUS</span>
+                </a>
+
+                <div class="nav-menu" id="navMenu">
+                    <a href="about.html" class="nav-link">About Us</a>
+
+                    <!-- Photography Dropdown -->
+                    <div class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle active">
+                            Photography
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="fall-portraits.html" class="dropdown-item">Fall Portraits</a>
+                            <a href="for-seniors.html" class="dropdown-item"
+                                style="color:var(--color-primary); font-weight:600;">Senior Graduation</a>
+                            <a href="kinder-grad.html" class="dropdown-item">Kinder & Junior Grad</a>
+                            <a href="university.html" class="dropdown-item">University/College Graduation</a>
+                            <a href="commencements.html" class="dropdown-item">Commencements</a>
+                        </div>
+                    </div>
+
+                    <!-- For Schools Dropdown -->
+                    <div class="nav-item">
+                        <a href="for-schools.html" class="nav-link dropdown-toggle">
+                            For Schools
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="for-schools.html" class="dropdown-item">School Partnership</a>
+                            <a href="school-services.html" class="dropdown-item">School Services</a>
+                        </div>
+                    </div>
+
+                    <!-- Yearbooks Dropdown -->
+                    <div class="nav-item">
+                        <a href="yearbooks.html" class="nav-link dropdown-toggle">
+                            Yearbooks
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="yearbooks-elementary.html" class="dropdown-item">Elementary Yearbooks</a>
+                            <a href="yearbooks-secondary.html" class="dropdown-item">Secondary Yearbooks</a>
+                            <a href="yearbooks.html" class="dropdown-item">All Yearbooks</a>
+                        </div>
+                    </div>
+
+                    <!-- Apparel Dropdown -->
+                    <div class="nav-item">
+                        <a href="apparel.html" class="nav-link dropdown-toggle">
+                            Apparel
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="apparel.html" class="dropdown-item">Spirit Wear</a>
+                            <a href="team-uniforms.html" class="dropdown-item">Team Uniforms</a>
+                        </div>
+                    </div>
+
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                    <a href="contact.html" class="nav-cta">Contact</a>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="senior-hero" style="padding-top: 120px;">
+        <div class="container">
+            <div class="senior-hero-content">
+                <div class="senior-hero-text">
+                    <div class="hero-badge" style="margin-bottom: var(--spacing-6);">
+                        ✨ Class of 2026
+                    </div>
+                    <h1>Senior Portraits</h1>
+                    <p>
+                        Your senior year is one of the most important milestones of your life.
+                        Let us capture your unique personality, style, and story with portraits
+                        you'll treasure forever.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#packages" class="btn btn-primary btn-lg">View Packages</a>
+                        <a href="#gallery" class="btn btn-secondary btn-lg">See Gallery</a>
+                    </div>
+                </div>
+                <div class="senior-hero-image">
+                    <img src="images/senior-hero.jpg" alt="Senior portrait photography">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2 class="section-title">Your Portrait Experience</h2>
+                <p class="section-description">
+                    From booking to delivery, we make the process simple and enjoyable.
+                </p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>Book Online</h3>
+                    <p>Choose your package and schedule your session at a time that works for you.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>Consultation</h3>
+                    <p>We'll discuss outfits, locations, and how to make your photos uniquely yours.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>Photo Session</h3>
+                    <p>Enjoy a fun, relaxed session where we capture your authentic personality.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3>Receive Photos</h3>
+                    <p>View your gallery online and select your favorites for prints and digital files.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="section" style="background: var(--color-gray-100);" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Pricing</span>
+                <h2 class="section-title">Senior Portrait Packages</h2>
+                <p class="section-description">
+                    Choose the package that's right for you. All packages include a pre-session consultation.
+                </p>
+            </div>
+
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3 class="package-name">Essential</h3>
+                    <div class="package-price">$299</div>
+                    <ul class="package-features">
+                        <li>1-hour session</li>
+                        <li>1 location</li>
+                        <li>2 outfit changes</li>
+                        <li>15 edited digital images</li>
+                        <li>Online gallery</li>
+                        <li>Print release</li>
+                    </ul>
+                    <a href="#book" class="btn btn-secondary" style="width: 100%;">Select Package</a>
+                </div>
+
+                <div class="package-card featured">
+                    <div class="package-badge">Most Popular</div>
+                    <h3 class="package-name">Signature</h3>
+                    <div class="package-price">$499</div>
+                    <ul class="package-features">
+                        <li>2-hour session</li>
+                        <li>2 locations</li>
+                        <li>4 outfit changes</li>
+                        <li>30 edited digital images</li>
+                        <li>Online gallery</li>
+                        <li>Print release</li>
+                        <li>8x10 print included</li>
+                    </ul>
+                    <a href="#book" class="btn btn-primary" style="width: 100%;">Select Package</a>
+                </div>
+
+                <div class="package-card">
+                    <h3 class="package-name">Premium</h3>
+                    <div class="package-price">$799</div>
+                    <ul class="package-features">
+                        <li>3-hour session</li>
+                        <li>3 locations</li>
+                        <li>Unlimited outfit changes</li>
+                        <li>50 edited digital images</li>
+                        <li>Online gallery</li>
+                        <li>Print release</li>
+                        <li>16x20 canvas included</li>
+                        <li>Graduation announcements</li>
+                    </ul>
+                    <a href="#book" class="btn btn-secondary" style="width: 100%;">Select Package</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Recent Senior Portraits</h2>
+                <p class="section-description">
+                    Every senior has a story worth capturing. Here are some of our favorites.
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/gallery-1.jpg" alt="Senior portrait">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-2.jpg" alt="Senior portrait">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-3.jpg" alt="Senior portrait">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-4.jpg" alt="Senior portrait">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-5.jpg" alt="Senior portrait">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-6.jpg" alt="Senior portrait">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background: var(--color-gray-100);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Common Questions</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <button class="faq-question">
+                        When should I book my senior session?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        We recommend booking 2-3 months in advance to ensure availability, especially for spring and
+                        summer sessions. However, we often can accommodate last-minute bookings depending on our
+                        schedule.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What should I wear to my session?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Bring outfits that reflect your personality! We recommend solid colors and avoiding busy
+                        patterns. Include a mix of casual and dressy options. We'll help you coordinate during your
+                        pre-session consultation.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I bring props or pets?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Absolutely! We encourage you to bring items that are meaningful to you—sports equipment, musical
+                        instruments, your car, or even your pet. These personal touches make your photos unique.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long until I receive my photos?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Your online gallery will be ready within 2 weeks of your session. Prints and products typically
+                        arrive 1-2 weeks after ordering, depending on the product type.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="book">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Book Your Session?</h2>
+                <p class="cta-description">
+                    Your senior year only happens once. Let's create portraits that capture
+                    this exciting chapter of your life.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-secondary btn-lg">Book Now</a>
+                    <a href="tel:+15551234567" class="btn btn-outline btn-lg">Call (555) 123-4567</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo" style="color: white;">PEGASUS</a>
+                    <p>
+                        Premium school and senior portrait photography.
+                        Capturing moments that become cherished memories for generations.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
+                                    stroke-width="2" />
+                                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+                                <circle cx="18" cy="6" r="1.5" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Pinterest">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12c0 4.25 2.67 7.88 6.42 9.31-.09-.78-.17-1.98.04-2.83.19-.77 1.22-4.93 1.22-4.93s-.31-.62-.31-1.54c0-1.45.84-2.53 1.89-2.53.89 0 1.32.67 1.32 1.47 0 .9-.57 2.24-.87 3.49-.25 1.05.53 1.91 1.56 1.91 1.88 0 3.32-1.98 3.32-4.84 0-2.53-1.82-4.31-4.42-4.31-3.01 0-4.78 2.26-4.78 4.6 0 .91.35 1.89.79 2.42.09.11.1.2.07.31-.08.33-.26 1.05-.3 1.2-.05.19-.16.23-.37.14-1.39-.65-2.26-2.69-2.26-4.33 0-3.52 2.56-6.75 7.38-6.75 3.87 0 6.88 2.76 6.88 6.45 0 3.85-2.43 6.94-5.8 6.94-1.13 0-2.2-.59-2.56-1.29l-.7 2.66c-.25.97-.93 2.19-1.39 2.93.99.31 2.04.47 3.13.47 5.52 0 10-4.48 10-10S17.52 2 12 2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Services</h4>
+                    <div class="footer-links">
+                        <a href="for-seniors.html">Senior Portraits</a>
+                        <a href="for-schools.html">School Photography</a>
+                        <a href="for-schools.html#events">Events & Athletics</a>
+                        <a href="for-schools.html#culture">School Culture</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="about.html#team">Our Team</a>
+                        <a href="#careers">Careers</a>
+                        <a href="#press">Press</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-links">
+                        <a href="tel:+15551234567">(555) 123-4567</a>
+                        <a href="mailto:info@pegasus-si.com">info@pegasus-si.com</a>
+                        <a href="#locations">Find a Location</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Pegasus School Images. All rights reserved.</p>
+                <div class="footer-links" style="flex-direction: row; gap: 1.5rem;">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const wasActive = item.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Toggle clicked item
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

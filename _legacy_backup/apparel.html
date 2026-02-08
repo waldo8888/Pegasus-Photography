@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apparel & Uniforms | Pegasus School Images</title>
+    <meta name="description"
+        content="Custom school spirit wear, team uniforms, and online stores. High-performance gear tailored for your students.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-logo">
+                Pegasus
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="about.html" class="nav-link">About Us</a>
+
+                <!-- Photography Dropdown -->
+                <div class="nav-item">
+                    <a href="#" class="nav-link dropdown-toggle">
+                        Photography
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="fall-portraits.html" class="dropdown-item">Fall Portraits</a>
+                        <a href="for-seniors.html" class="dropdown-item">Senior Graduation</a>
+                        <a href="kinder-grad.html" class="dropdown-item">Kinder & Junior Grad</a>
+                        <a href="university.html" class="dropdown-item">University/College Graduation</a>
+                        <a href="commencements.html" class="dropdown-item">Commencements</a>
+                    </div>
+                </div>
+
+                <!-- For Schools Dropdown -->
+                <div class="nav-item">
+                    <a href="for-schools.html" class="nav-link dropdown-toggle">
+                        For Schools
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="for-schools.html" class="dropdown-item">School Partnership</a>
+                        <a href="school-services.html" class="dropdown-item">School Services</a>
+                    </div>
+                </div>
+
+                <!-- Yearbooks Dropdown -->
+                <div class="nav-item">
+                    <a href="yearbooks.html" class="nav-link dropdown-toggle">
+                        Yearbooks
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="yearbooks-elementary.html" class="dropdown-item">Elementary Yearbooks</a>
+                        <a href="yearbooks-secondary.html" class="dropdown-item">Secondary Yearbooks</a>
+                        <a href="yearbooks.html" class="dropdown-item">All Yearbooks</a>
+                    </div>
+                </div>
+
+                <!-- Apparel Dropdown -->
+                <div class="nav-item">
+                    <a href="apparel.html" class="nav-link dropdown-toggle active">
+                        Apparel
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="apparel.html" class="dropdown-item"
+                            style="color:var(--color-primary); font-weight:600;">Spirit Wear</a>
+                        <a href="team-uniforms.html" class="dropdown-item">Team Uniforms</a>
+                    </div>
+                </div>
+
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-cta">Contact</a>
+            </div>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg">
+            <div
+                style="width: 100%; height: 100%; background: linear-gradient(rgba(224, 43, 32, 0.8), rgba(167, 31, 36, 0.9)), url('images/hero_bg.png') center/cover no-repeat;">
+            </div>
+        </div>
+        <div class="container hero-content">
+            <span class="hero-badge">School Spirit</span>
+            <h1 class="hero-title">
+                Wear Your <br>
+                <span>Pride.</span>
+            </h1>
+            <p class="hero-description">
+                From custom spirit wear to performance team uniforms, we outfit your school in style.
+            </p>
+            <div class="hero-buttons">
+                <a href="#spirit" class="btn btn-primary" style="background: white; color: var(--color-primary);">Spirit
+                    Wear</a>
+                <a href="#uniforms" class="btn btn-outline" style="border-color: white; color: white;">Team Uniforms</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Spirit Wear Section -->
+    <section id="spirit" class="section">
+        <div class="container">
+            <div class="split-layout">
+                <div class="split-content">
+                    <span class="section-tag">For the Whole School</span>
+                    <h2>Spirit Wear made Simple</h2>
+                    <p class="mb-4">
+                        Boost school morale with high-quality hoodies, t-shirts, and joggers. We handle the design,
+                        orders, and delivery.
+                    </p>
+
+                    <div class="feature-box mt-6" style="background: var(--color-gray-100);">
+                        <h3>🛍️ Online Stores</h3>
+                        <p>We build a custom e-commerce site for your school. Parents order online, and we ship items
+                            individually labeled for easy distribution. No money collection for you!</p>
+                    </div>
+
+                    <div class="feature-box mt-4" style="background: var(--color-gray-100);">
+                        <h3>🎨 Custom Design</h3>
+                        <p>Our graphics team will create unique designs using your logo and colors. Don't have a design?
+                            Pick from our library of cool templates.</p>
+                    </div>
+                </div>
+                <div class="split-image grid-products">
+                    <!-- Product Cards using CSS -->
+                    <div class="product-card">
+                        <div class="product-icon">👕</div>
+                        <h4>T-Shirts</h4>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">🧥</div>
+                        <h4>Hoodies</h4>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">👖</div>
+                        <h4>Joggers</h4>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">🧢</div>
+                        <h4>Hats</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Uniforms Section -->
+    <section id="uniforms" class="section" style="background-color: var(--color-black); color: white;">
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="section-tag" style="background: rgba(255,255,255,0.1); color: white;">Performance
+                    Gear</span>
+                <h2 class="section-title" style="color: white;">Next Level Uniforms</h2>
+                <p class="section-description" style="color: var(--color-gray-400);">
+                    Dominate the field with custom, hand-sewn uniforms designed for performance and durability.
+                </p>
+            </div>
+
+            <div class="grid-3-cols">
+                <div class="card dark-card">
+                    <h3>Custom Hand-Sewn</h3>
+                    <p>Tailored fits and premium fabrics for basketball, volleyball, soccer, and more.</p>
+                </div>
+                <div class="card dark-card">
+                    <h3>Build Your Own</h3>
+                    <p>Use our interactive online builder to visualize your team's look before you order.</p>
+                </div>
+                <div class="card dark-card">
+                    <h3>Multi-Sport</h3>
+                    <p>We outfit athletes for field, court, and track sports with specialized technical gear.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-section">
+        <div class="container cta-content">
+            <h2 class="cta-title">Get Your Gear</h2>
+            <p class="cta-description">
+                Ready to start an online store or outfit your team?
+            </p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-secondary btn-lg">Contact Apparel Team</a>
+                <a href="https://pegasus-si.com/onlinestores/" class="btn btn-outline btn-lg">View Demo Stores</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo" style="color: white;">Pegasus</a>
+                    <!-- Social Icons (Reused) -->
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><svg width="20" height="20" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <p class="footer-title">Services</p>
+                    <a href="for-schools.html">School Photography</a>
+                    <a href="commencements.html">Commencements</a>
+                    <a href="apparel.html">Apparel & Uniforms</a>
+                    <a href="about.html">About Us</a>
+                </div>
+
+                <div class="footer-links">
+                    <p class="footer-title">Company</p>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+
+                <div class="footer-links">
+                    <p class="footer-title">Contact</p>
+                    <a href="mailto:info@pegasus.com">info@pegasus.com</a>
+                    <a href="tel:+18001234567">1-800-123-4567</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pegasus School Images. All rights reserved.</p>
+                <p>Designed with <span style="color: var(--color-primary);">♥</span> by Zaila AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Specific styles */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .grid-3-cols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .grid-products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .feature-box {
+            padding: 30px;
+            border-radius: var(--radius-lg);
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dark-card {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            box-shadow: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-3-cols {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function () {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                document.querySelector('.nav').classList.add('scrolled');
+            } else {
+                document.querySelector('.nav').classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>

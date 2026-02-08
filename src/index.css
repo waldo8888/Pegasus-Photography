@@ -1,0 +1,52 @@
+/* 
+ * Lenis Smooth Scroll Compatible Reset
+ * This CSS is specifically designed to work with Lenis smooth scrolling
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Required for Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* CRITCAL: overflow: visible is required for position: sticky to work */
+html {
+  width: 100%;
+  overflow: visible;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: visible;
+  /* We remove overflow-x: hidden global lock to allow sticky to work. 
+     Individual sections must handle their own overflow. */
+}
+
+#root {
+  width: 100%;
+  overflow: visible;
+}

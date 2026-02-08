@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="About Pegasus School Images - Learn about our mission, team, and 15+ years of experience in school and senior portrait photography.">
+    <title>About Us | Pegasus School Images</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* About Page Specific Styles */
+        .about-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 120px;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .about-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--color-white);
+        }
+
+        .about-hero-content h1 {
+            font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+            margin-bottom: var(--spacing-6);
+        }
+
+        .about-hero-content p {
+            font-size: var(--text-xl);
+            opacity: 0.9;
+        }
+
+        /* Story Section */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-16);
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .story-content p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-4);
+            line-height: 1.8;
+        }
+
+        .story-image img {
+            width: 100%;
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-8);
+        }
+
+        .value-card {
+            text-align: center;
+            padding: var(--spacing-8);
+            background: var(--color-white);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-6);
+            color: var(--color-white);
+        }
+
+        .value-card h3 {
+            font-size: var(--text-xl);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .value-card p {
+            color: var(--color-gray-600);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-8);
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member-image {
+            width: 180px;
+            height: 180px;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin: 0 auto var(--spacing-4);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            font-size: var(--text-lg);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .team-member p {
+            color: var(--color-gray-500);
+            font-size: var(--text-sm);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-gray-200);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-12);
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: var(--spacing-6);
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-year {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-year span {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--color-primary);
+            border-radius: var(--radius-full);
+            transform: translate(-50%, -50%);
+            border: 4px solid var(--color-white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-content h3 {
+            font-size: var(--text-lg);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .timeline-content p {
+            color: var(--color-gray-600);
+            font-size: var(--text-sm);
+        }
+
+        @media (max-width: 1024px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+                text-align: left;
+                padding-left: 50px;
+            }
+
+            .timeline-year {
+                justify-content: flex-start;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-logo">
+                    <span>PEGASUS</span>
+                </a>
+
+                <div class="nav-menu" id="navMenu">
+                    <a href="for-seniors.html" class="nav-link">For Seniors</a>
+
+                    <!-- Dropdown -->
+                    <div class="nav-item">
+                        <a href="for-schools.html" class="nav-link dropdown-toggle">
+                            For Schools
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <span class="dropdown-header">Overview</span>
+                                <a href="for-schools.html" class="dropdown-item">School Partnership</a>
+                                <a href="school-services.html" class="dropdown-item">All Services</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <span class="dropdown-header">Photography</span>
+                                <a href="fall-portraits.html" class="dropdown-item">Fall Portraits</a>
+                                <a href="kinder-grad.html" class="dropdown-item">Kinder & Junior Grad</a>
+                                <a href="commencements.html" class="dropdown-item">Commencements</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <span class="dropdown-header">Products</span>
+                                <a href="yearbooks.html" class="dropdown-item">Yearbooks</a>
+                                <a href="apparel.html" class="dropdown-item">Apparel & Uniforms</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="university.html" class="nav-link">University & College</a>
+                    <a href="about.html" class="nav-link active">About Us</a>
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                    <a href="contact.html" class="nav-cta">Contact</a>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <h1>About Pegasus</h1>
+                <p>
+                    For over 15 years, we've been capturing the moments that matter most—
+                    helping families and schools preserve precious memories through beautiful photography.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <span class="section-tag">Our Story</span>
+                    <h2>Built on Passion, Driven by Purpose</h2>
+                    <p>
+                        Pegasus School Images was founded in 2010 with a simple mission: to create
+                        beautiful, authentic photographs that families would treasure for generations.
+                    </p>
+                    <p>
+                        What started as a small studio has grown into a trusted partner for over
+                        200 schools across the region. But our commitment to quality and personal
+                        service has never changed.
+                    </p>
+                    <p>
+                        We believe every portrait should tell a story—whether it's capturing a
+                        senior's excitement for the future or documenting the everyday magic of
+                        a school community.
+                    </p>
+                </div>
+                <div class="story-image">
+                    <img src="images/about-story.jpg" alt="Our photography studio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section" style="background: var(--color-gray-100);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Values</span>
+                <h2 class="section-title">What We Stand For</h2>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </div>
+                    <h3>Authenticity</h3>
+                    <p>We capture real moments and genuine personalities—not forced poses or fake smiles.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We're committed to delivering the highest quality in everything we do—from photos to service.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <h3>Community</h3>
+                    <p>We're proud to be part of the communities we serve, supporting local schools and families.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Team</span>
+                <h2 class="section-title">Meet the Pegasus Family</h2>
+                <p class="section-description">
+                    Our talented team of photographers and support staff are passionate about
+                    what they do—and it shows in every photo we take.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="images/team-1.jpg" alt="Sarah Johnson">
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <p>Founder & Lead Photographer</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="images/team-2.jpg" alt="Michael Chen">
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p>Senior Photographer</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="images/team-3.jpg" alt="Emily Rodriguez">
+                    </div>
+                    <h3>Emily Rodriguez</h3>
+                    <p>School Relations Manager</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="images/team-4.jpg" alt="David Park">
+                    </div>
+                    <h3>David Park</h3>
+                    <p>Photo Editor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section" style="background: var(--color-gray-100);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Journey</span>
+                <h2 class="section-title">15 Years of Growth</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year"><span>2010</span></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>The Beginning</h3>
+                        <p>Sarah Johnson opens Pegasus as a small portrait studio, focusing on senior and family
+                            photography.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year"><span>2014</span></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>School Partnership</h3>
+                        <p>We sign our first school contract, expanding into school portrait photography.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year"><span>2018</span></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>100 Schools Strong</h3>
+                        <p>Pegasus reaches 100 school partners and expands the team to 12 photographers.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year"><span>2023</span></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>New Studio</h3>
+                        <p>We open our new flagship studio, featuring state-of-the-art equipment and dedicated senior
+                            portrait spaces.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year"><span>2026</span></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Today & Beyond</h3>
+                        <p>With 200+ school partners and thousands of happy families, we continue to grow while staying
+                            true to our mission.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Let's Work Together</h2>
+                <p class="cta-description">
+                    Whether you're a senior looking for amazing portraits or a school seeking
+                    a photography partner, we'd love to hear from you.
+                </p>
+                <div class="cta-buttons">
+                    <a href="for-seniors.html" class="btn btn-secondary btn-lg">For Seniors</a>
+                    <a href="for-schools.html" class="btn btn-outline btn-lg">For Schools</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo" style="color: white;">PEGASUS</a>
+                    <p>
+                        Premium school and senior portrait photography.
+                        Capturing moments that become cherished memories for generations.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
+                                    stroke-width="2" />
+                                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+                                <circle cx="18" cy="6" r="1.5" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Pinterest">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12c0 4.25 2.67 7.88 6.42 9.31-.09-.78-.17-1.98.04-2.83.19-.77 1.22-4.93 1.22-4.93s-.31-.62-.31-1.54c0-1.45.84-2.53 1.89-2.53.89 0 1.32.67 1.32 1.47 0 .9-.57 2.24-.87 3.49-.25 1.05.53 1.91 1.56 1.91 1.88 0 3.32-1.98 3.32-4.84 0-2.53-1.82-4.31-4.42-4.31-3.01 0-4.78 2.26-4.78 4.6 0 .91.35 1.89.79 2.42.09.11.1.2.07.31-.08.33-.26 1.05-.3 1.2-.05.19-.16.23-.37.14-1.39-.65-2.26-2.69-2.26-4.33 0-3.52 2.56-6.75 7.38-6.75 3.87 0 6.88 2.76 6.88 6.45 0 3.85-2.43 6.94-5.8 6.94-1.13 0-2.2-.59-2.56-1.29l-.7 2.66c-.25.97-.93 2.19-1.39 2.93.99.31 2.04.47 3.13.47 5.52 0 10-4.48 10-10S17.52 2 12 2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Services</h4>
+                    <div class="footer-links">
+                        <a href="for-seniors.html">Senior Portraits</a>
+                        <a href="for-schools.html">School Photography</a>
+                        <a href="for-schools.html#events">Events & Athletics</a>
+                        <a href="for-schools.html#culture">School Culture</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="about.html#team">Our Team</a>
+                        <a href="#careers">Careers</a>
+                        <a href="#press">Press</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-links">
+                        <a href="tel:+15551234567">(555) 123-4567</a>
+                        <a href="mailto:info@pegasus-si.com">info@pegasus-si.com</a>
+                        <a href="#locations">Find a Location</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Pegasus School Images. All rights reserved.</p>
+                <div class="footer-links" style="flex-direction: row; gap: 1.5rem;">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
