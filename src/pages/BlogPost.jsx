@@ -17,7 +17,6 @@ const fadeInUp = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
-// Sample article content - matching Blog.jsx
 const articles = [
     {
         id: 1,
@@ -65,19 +64,39 @@ Now that you know what to wear, it's time to schedule your session!`
         author: { name: 'David Chen', role: 'School Photography Director', avatar: '/images/team/david.jpg' },
         content: `
 ## Preparing for Picture Day
-Picture day is a big deal! Here is how to ensure your child looks their best.
+Picture day is a big deal! You want your child to look their best, but you also want them to feel comfortable and happy. Here are our top 10 tips for a stress-free picture day.
 
-## 1. Get a Good Night's Sleep
-Rest is crucial for happy smiles and bright eyes.
+## The Top 10 Tips
 
-## 2. Plan the Outfit in Advance
-Don't wait until the morning of. Choose comfortable clothes that fit well.
+### 1. Plan the Outfit in Advance
+Don't wait until the morning of specific. Choose an outfit your child feels comfortable in. Avoid itchy fabrics or overly tight collars.
 
-## 3. Avoid Large Logos
-Text and graphics can be distracting. Solid colors works best.
+### 2. Avoid Large Logos and Graphics
+Slogans and cartoon characters can be distracting and date the photo. Solid colors or simple patterns work best.
 
-## 4. Don't Stress!
-If you are stressed, your child might be too. Keep it fun and lighthearted.`
+### 3. Get a Good Night's Sleep
+A well-rested child is a happy child. Ensure they get to bed on time the night before.
+
+### 4. Practice Smiles
+Practice in the mirror! Encouraging a natural "happy face" rather than a forced "cheese" can make a huge difference.
+
+### 5. Tame the Hair
+If your child needs a haircut, schedule it about a week before picture day. on the day of, use a little product to tame flyaways, but keep it natural.
+
+### 6. Neutral Colors Work Best
+Bright neons can reflect color onto skin tones. Blues, greens, and warm earth tones are generally very flattering.
+
+### 7. Glasses Glare
+If your child wears glasses, see if your eye doctor can lend a pair of frames without lenses to avoid glare, or just ensure they are clean and adjusted properly.
+
+### 8. Don't Stress!
+Children pick up on your energy. If you are relaxed and positive about picture day, they will be too.
+
+### 9. Check the Schedule
+Know exactly what day (and time, if possible) pictures are being taken so you don't send them in their gym clothes!
+
+### 10. Let Their Personality Shine
+The best photos capture your child's true spirit. Don't worry about perfection; worry about capturing *them*.`
     },
     {
         id: 3,
@@ -88,8 +107,29 @@ If you are stressed, your child might be too. Keep it fun and lighthearted.`
         readTime: '6 min read',
         image: '/images/gallery/school-group-1.jpg',
         author: { name: 'Emily White', role: 'Account Manager', avatar: '/images/team/emily.jpg' },
-        content: `## Finding the Perfect Partner
-Choosing a photographer for your school district is a big decision.`
+        content: `
+## Finding the Perfect Partner
+Choosing a photographer for your school district is a big decision. It's not just about taking pictures; it's about managing logistics, handling data securely, and delivering a great experience for parents and staff.
+
+## Key Factors to Consider
+
+### 1. Reliability and Track Record
+Look for a company with a proven history of delivering on time. Ask for references from other schools of similar size. Can they handle the volume of your student body smoothly?
+
+### 2. Technology and Data Integration
+Modern school photography requires seamless data integration. Does the photographer's system integrate with your Student Information System (SIS) for ID cards and yearbooks?
+
+### 3. Customer Service for Parents
+You don't want your front office fielded calls about missing photo packages. Choose a partner that offers robust, direct-to-parent customer support.
+
+### 4. Quality and Variety
+Review their portfolio. Do the photos look consistent? do they offer a variety of backgrounds and poses to give parents choices?
+
+### 5. Staff Support
+A good partner supports your staff too. This includes providing ID badges, administrative software for tracking images, and complimentary staff photos.
+
+## The Pegasus Difference
+At Pegasus, we pride ourselves on being more than just vendors; we are partners. We maximize efficiency on picture day so you can get back to teaching.`
     },
     {
         id: 4,
@@ -100,8 +140,60 @@ Choosing a photographer for your school district is a big decision.`
         readTime: '7 min read',
         image: '/images/gallery/senior-outdoor-1.jpg',
         author: { name: 'Sarah Mitchell', role: 'Senior Portrait Specialist', avatar: '/images/team/sarah.jpg' },
-        content: `## Location, Location, Location
-The backdrop sets the mood for your entire session.`
+        content: `
+## Location, Location, Location
+The backdrop sets the mood for your entire session. Whether you want an urban vibe, a nature-filled escape, or a classic architectural feel, our city has it all. Here are 15 of our favorite spots.
+
+## Urban & Modern
+
+### 1. Downtown Arts District
+Colorful murals, brick alleyways, and industrial textures make this perfect for edgy, modern looks.
+
+### 2. The Glass Walkway
+For sleek lines and reflections, the glass walkway near the convention center is unbeatable.
+
+### 3. Old Market Rooftops
+Capture the skyline at sunset from the top of the Old Market parking structures.
+
+### 4. Historic Post Office Steps
+Grand marble columns and wide stairs offer a timeless, sophisticated urban feel.
+
+### 5. The Steel Bridge
+ rivets, beams, and river views provide a strong, structural background.
+
+## Nature & Parks
+
+### 6. Whispering Pines Park
+Tall pine trees offer year-round greenery and a secluded, magical forest vibe.
+
+### 7. Botanical Gardens
+From manicured floral beds to the Japanese garden, this location offers variety within a small walking distance.
+
+### 8. Riverfront Landing
+Tall grasses, the river bank, and drift wood make for a relaxed, organic setting.
+
+### 9. Sunflower Fields (Seasonal)
+In late summer, the sunflower fields just outside town are a breathtaking wash of yellow.
+
+### 10. The Waterfall at High Rock
+A bit of a hike, but the natural stone and falling water create a dramatic backdrop.
+
+## Classic & Architectural
+
+### 11. State University Campus
+Gothic arches, brick ivy walls, and manicured quads offer a collegiate, preppy look.
+
+### 12. The Library Courtyard
+Stone fountains and benches provide a quiet, elegant setting.
+
+### 13. Union Station
+The grand hall with its high ceilings and vintage lighting is perfect for formal attire.
+
+### 14. Heritage Museum Grounds
+White pillars and symmetrical landscaping give a clean, high-end aesthetic.
+
+### 15. Your High School Stadium
+For athletes, nothing beats the bleachers or the 50-yard line under the friday night lights.`
     },
     {
         id: 5,
@@ -112,8 +204,37 @@ The backdrop sets the mood for your entire session.`
         readTime: '5 min read',
         image: '/images/gallery/sports-team-1.jpg',
         author: { name: 'Mike Ross', role: 'Creative Director', avatar: '/images/team/mike.jpg' },
-        content: `## Personalized Your Session
-Props are a great way to show off your personality and interests.`
+        content: `
+## Personalizing Your Session
+Props are a great way to show off your personality and interests. They give you something to do with your hands and help tell the story of your high school career.
+
+## Ideas to Get You Started
+
+### 1. Sports Gear
+Bring your jersey, helmet, bat, ball, or stick. Action shots or moody locker room style portraits are always a hit.
+
+### 2. Musical Instruments
+From a guitar slung over your shoulder to a saxophone or violin. Music is a huge part of your life—show it off!
+
+### 3. Your Car or Truck
+If you love your ride, let's include it! Lean against the hood, sit in the trunk, or shoot through the window.
+
+### 4. Books & Art Supplies
+For the intellectuals and artists: a stack of your favorite novels, a sketchbook, or paint brushes can create a beautiful, pensive mood.
+
+### 5. College Swag
+Accepted to your dream school? Bring a pennant, hoodie, or flag to announce your next chapter.
+
+### 6. Pets
+Yes, we love furry friends! Bring your dog for a few shots. Just bring a handler to hold them while we do solo portraits.
+
+### 7. Balloons or Confetti
+For a fun, celebratory vibe. (Please note: we use biodegradable confetti only!)
+
+## Tips for Props
+- **Keep it meaningful**: Don't bring random items. Choose things that really represent YOU.
+- **Clean them up**: Make sure your instrument is polished, your jersey is ironed, and your car is washed.
+- **Limit the quantity**: 1-3 key props is usually plenty. You don't want the session to become just about the stuff.`
     },
     {
         id: 6,
@@ -124,8 +245,27 @@ Props are a great way to show off your personality and interests.`
         readTime: '4 min read',
         image: '/images/yearbook-cover.jpg',
         author: { name: 'Jessica Lee', role: 'Yearbook Specialist', avatar: '/images/team/jessica.jpg' },
-        content: `## What's Trending in 2026?
-From bold typography to interactive elements, here is what is hot in yearbook design.`
+        content: `
+## What's Trending in 2026?
+School yearbooks are evolving giving way to new design trends that reflect the aesthetic of Generation Alpha. Here is what is hot in yearbook design for 2026.
+
+## 1. Minimalist Typography
+Say goodbye to clutter. Big, bold, sans-serif fonts are in. Think magazine-style headlines that make a statement with fewer words.
+
+## 2. Scrapbook Aesthetic 2.0
+While digital precision is key, the "hand-made" look is back. Digital stickers, tape overlays, and paper textures add a nostalgic, tactile feel to the pages.
+
+## 3. Interactive Elements
+QR codes are becoming standard. Link printed photos to video highlights of the game, the choir concert, or graduation speeches. It makes the yearbook a multimedia experience.
+
+## 4. Color Blocking
+Vibrant, solid blocks of color are being used to separate sections and frame photos. High contrast palettes (like neon on black) are particularly popular.
+
+## 5. First-Person Narratives
+Instead of generic captions, schools are moving towards varied storytelling. Quotes and short first-person stories from students give the book a more authentic voice.
+
+## 6. Candid Over Posed
+The ratio of candid "action" shots to posed group photos is shifting. Students want to remember the moments between the moments.`
     },
     {
         id: 7,
@@ -136,8 +276,27 @@ From bold typography to interactive elements, here is what is hot in yearbook de
         readTime: '3 min read',
         image: '/images/blog/senior-tips.jpg',
         author: { name: 'Sarah Mitchell', role: 'Senior Portrait Specialist', avatar: '/images/team/sarah.jpg' },
-        content: `## A Look Behind the Lens
-Ever wondered what goes into a professional photo shoot?`
+        content: `
+## A Look Behind the Lens
+Ever wondered what goes into a professional photo shoot? It is not just about showing up and smiling. Here is a peek at the Pegasus process.
+
+## The Pre-Consultation
+We start with a chat before the camera ever comes out. We discuss your style, locations, and what you want your photos to say about you.
+
+## On Location
+When we arrive, we scout the light. Good lighting is 90% of a great photo. We look for soft shade, golden hour sun flairs, and clean backgrounds.
+
+## The Shoot
+During the session, I'll guide you through poses. "Chin down," "laugh at me," "walk towards the camera." I keep it moving so you don't have time to feel awkward. I'm constantly checking the back of the camera to make sure we're getting "the shot."
+
+## Styling Adjustments
+We are always watching for stray hairs, twisted necklaces, or wrinkled shirts. It's the little details that separate a pro photo from a snapshot.
+
+## Post-Processing
+After the shoot, the real work begins. We cull the images (selecting the best ones), color correct them, and apply our signature editing style.
+
+## The Reveal
+This is our favorite part! Showing you the final images and seeing your reaction. We help you choose your favorites for your album or wall art.`
     },
     {
         id: 8,
@@ -148,8 +307,30 @@ Ever wondered what goes into a professional photo shoot?`
         readTime: '6 min read',
         image: '/images/gallery/graduation-1.jpg',
         author: { name: 'Sarah Mitchell', role: 'Senior Portrait Specialist', avatar: '/images/team/sarah.jpg' },
-        content: `## Celebrating Your Achievement
-Graduation is a major milestone. Capture it perfectly.`
+        content: `
+## Celebrating Your Achievement
+Graduation is a major milestone. It marks the end of an era and the beginning of a new adventure. Capture it perfectly with these tips for your cap and gown session.
+
+## Timing is Everything
+Don't wait until graduation day! It's chaotic, hot, and crowded. Schedule a separate "Cap & Gown" mini-session a few weeks before or after the ceremony. You'll be more relaxed and we'll have better light.
+
+## What to Wear Underneath
+Remember that your gown will open as you walk.
+- **Guys**: Wear a collared shirt and tie. It looks sharp showing at the top.
+- **Girls**: A dress that is shorter than the gown avoids awkward hemline clashes. Or, wear nice pants and heels.
+
+## The Cap (Mortarboard)
+- **Decoration**: If you decorate your cap, bring it! It's a great personal touch.
+- **Hair**: Hat hair is real. Plan a hairstyle that works well under a cap (loose waves or a low bun). bring bobby pins to secure it.
+
+## Key Poses We Capture
+1. **The Tassel Turn**: Action shot of moving the tassel.
+2. **The Cap Toss**: A classic celebration shot (we usually do a few takes of this!).
+3. **Holding the Diploma**: We have prop diplomas if you don't have yours yet.
+4. **Walking Away**: Back shot showing "Class of 2026" on your sash or gown.
+
+## Family Photos
+This is a proud moment for your parents too. Bring them along for a few shots with you in your gown. They'll cherish those photos forever.`
     }
 ];
 
