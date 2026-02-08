@@ -17,71 +17,145 @@ const fadeInUp = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
-// Sample article content - in production this would come from a CMS
-const articleContent = {
-    'what-to-wear-senior-photos': {
+// Sample article content - matching Blog.jsx
+const articles = [
+    {
+        id: 1,
+        slug: 'what-to-wear-senior-photos',
         title: 'What to Wear for Senior Photos: Your Ultimate Guide',
         category: 'For Seniors',
-        date: 'February 1, 2026',
+        date: 'Feb 1, 2026',
         readTime: '5 min read',
-        author: {
-            name: 'Sarah Mitchell',
-            role: 'Senior Portrait Specialist',
-            avatar: '/images/team/sarah.jpg'
-        },
-        heroImage: '/images/blog/outfit-guide-hero.jpg',
+        image: '/images/blog/what-to-wear.jpg',
+        author: { name: 'Sarah Mitchell', role: 'Senior Portrait Specialist', avatar: '/images/team/sarah.jpg' },
         content: `
 ## Why Your Outfit Matters
-
 Your senior photos are a snapshot of who you are right now. The outfits you choose can make or break the final result. Here's everything you need to know to look your absolute best.
 
 ## The Golden Rules
-
 ### 1. Solid Colors Are Your Best Friend
-
 Busy patterns, logos, and graphics distract from your face. Stick to solid, rich colors like:
 - **Jewel tones**: emerald, sapphire, ruby
 - **Earth tones**: rust, olive, camel
 - **Neutrals**: cream, navy, charcoal
 
 ### 2. Dress in Layers
-
 Layers add dimension to your photos and give you options during your session. Think:
 - Blazers or jackets over simple tops
 - Cardigans or denim jackets
 - Scarves for fall sessions
 
 ### 3. Bring Multiple Outfits
-
 Most sessions allow for 2-3 outfit changes. Mix it up with:
 - One casual look (jeans + nice top)
 - One dressy look (dress or suit)
 - One "you" look (sports gear, band tee, etc.)
 
-## Colors to Avoid
-
-- **Neon colors**: They can reflect onto your skin
-- **All white or all black**: Can wash you out or lose detail
-- **Heavy patterns**: Stripes, plaids, and busy prints distract
-
-## Pro Tips
-
-1. **Iron everything** the night before
-2. **Get a haircut 1 week early** to let it settle
-3. **Stay hydrated** for glowing skin
-4. **Paint nails 2 days before** to avoid chips
-5. **Bring backup accessories** like jewelry and hats
-
 ## Ready to Book?
+Now that you know what to wear, it's time to schedule your session!`
+    },
+    {
+        id: 2,
+        slug: 'picture-day-tips-parents',
+        title: '10 Picture Day Tips Every Parent Should Know',
+        category: 'For Parents',
+        date: 'Jan 28, 2026',
+        readTime: '4 min read',
+        image: '/images/gallery/family-portraits-1.jpg',
+        author: { name: 'David Chen', role: 'School Photography Director', avatar: '/images/team/david.jpg' },
+        content: `
+## Preparing for Picture Day
+Picture day is a big deal! Here is how to ensure your child looks their best.
 
-Now that you know what to wear, it's time to schedule your session!
-        `
+## 1. Get a Good Night's Sleep
+Rest is crucial for happy smiles and bright eyes.
+
+## 2. Plan the Outfit in Advance
+Don't wait until the morning of. Choose comfortable clothes that fit well.
+
+## 3. Avoid Large Logos
+Text and graphics can be distracting. Solid colors works best.
+
+## 4. Don't Stress!
+If you are stressed, your child might be too. Keep it fun and lighthearted.`
+    },
+    {
+        id: 3,
+        slug: 'choosing-school-photographer',
+        title: 'How Schools Can Choose the Right Photography Partner',
+        category: 'For Schools',
+        date: 'Jan 20, 2026',
+        readTime: '6 min read',
+        image: '/images/gallery/school-group-1.jpg',
+        author: { name: 'Emily White', role: 'Account Manager', avatar: '/images/team/emily.jpg' },
+        content: `## Finding the Perfect Partner
+Choosing a photographer for your school district is a big decision.`
+    },
+    {
+        id: 4,
+        slug: 'senior-portrait-locations',
+        title: '15 Stunning Senior Portrait Locations in Your City',
+        category: 'For Seniors',
+        date: 'Jan 15, 2026',
+        readTime: '7 min read',
+        image: '/images/gallery/senior-outdoor-1.jpg',
+        author: { name: 'Sarah Mitchell', role: 'Senior Portrait Specialist', avatar: '/images/team/sarah.jpg' },
+        content: `## Location, Location, Location
+The backdrop sets the mood for your entire session.`
+    },
+    {
+        id: 5,
+        slug: 'props-senior-photos',
+        title: 'Creative Props for Unique Senior Photos',
+        category: 'For Seniors',
+        date: 'Jan 10, 2026',
+        readTime: '5 min read',
+        image: '/images/gallery/sports-team-1.jpg',
+        author: { name: 'Mike Ross', role: 'Creative Director', avatar: '/images/team/mike.jpg' },
+        content: `## Personalized Your Session
+Props are a great way to show off your personality and interests.`
+    },
+    {
+        id: 6,
+        slug: 'yearbook-design-trends',
+        title: '2026 Yearbook Design Trends to Watch',
+        category: 'For Schools',
+        date: 'Jan 5, 2026',
+        readTime: '4 min read',
+        image: '/images/yearbook-cover.jpg',
+        author: { name: 'Jessica Lee', role: 'Yearbook Specialist', avatar: '/images/team/jessica.jpg' },
+        content: `## What's Trending in 2026?
+From bold typography to interactive elements, here is what is hot in yearbook design.`
+    },
+    {
+        id: 7,
+        slug: 'behind-the-scenes-photo-session',
+        title: 'Behind the Scenes: A Senior Photo Session',
+        category: 'For Seniors',
+        date: 'Dec 28, 2025',
+        readTime: '3 min read',
+        image: '/images/blog/senior-tips.jpg',
+        author: { name: 'Sarah Mitchell', role: 'Senior Portrait Specialist', avatar: '/images/team/sarah.jpg' },
+        content: `## A Look Behind the Lens
+Ever wondered what goes into a professional photo shoot?`
+    },
+    {
+        id: 8,
+        slug: 'graduation-portraits-guide',
+        title: 'The Complete Guide to Graduation Portraits',
+        category: 'For Seniors',
+        date: 'Dec 20, 2025',
+        readTime: '6 min read',
+        image: '/images/gallery/graduation-1.jpg',
+        author: { name: 'Sarah Mitchell', role: 'Senior Portrait Specialist', avatar: '/images/team/sarah.jpg' },
+        content: `## Celebrating Your Achievement
+Graduation is a major milestone. Capture it perfectly.`
     }
-};
+];
 
 const BlogPost = () => {
     const { slug } = useParams();
-    const article = articleContent[slug] || articleContent['what-to-wear-senior-photos'];
+    const article = articles.find(a => a.slug === slug) || articles[0];
 
     return (
         <Box>
@@ -93,7 +167,7 @@ const BlogPost = () => {
             }}>
                 <Box
                     component="img"
-                    src={article.heroImage}
+                    src={article.image}
                     sx={{
                         position: 'absolute',
                         width: '100%',
