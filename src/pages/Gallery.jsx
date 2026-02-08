@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Container, Typography, Grid, Paper, Tabs, Tab, Chip, IconButton, Dialog, DialogContent } from '@mui/material';
+import { Box, Container, Typography, Paper, Tabs, Tab, Chip, IconButton, Dialog, DialogContent } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -14,29 +14,38 @@ const fadeInUp = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
-// Sample gallery data - in production this would come from an API or CMS
+// Sample gallery data with size variations for masonry layout
 const galleryItems = [
-    // Seniors
-    { id: 1, src: '/images/gallery/senior-outdoor-1.jpg', category: 'seniors', title: 'Emma - Nature Session', description: 'Autumn outdoor portrait with golden hour lighting' },
-    { id: 2, src: '/images/gallery/senior-urban-1.jpg', category: 'seniors', title: 'Marcus - Downtown', description: 'Urban portrait in the city' },
-    { id: 3, src: '/images/gallery/graduation-1.jpg', category: 'seniors', title: 'Sophia - Graduation Day', description: 'Cap and gown celebration' },
-    { id: 4, src: '/images/gallery/senior-outdoor-1.jpg', category: 'seniors', title: 'James - Park Session', description: 'Natural light senior portraits' },
-    { id: 5, src: '/images/gallery/senior-urban-1.jpg', category: 'seniors', title: 'Olivia - City Vibes', description: 'Modern urban aesthetic' },
-    { id: 6, src: '/images/gallery/graduation-1.jpg', category: 'seniors', title: 'Ethan - Graduation', description: 'Campus graduation portraits' },
+    // Seniors - Featured large images
+    { id: 1, src: '/images/gallery/senior-outdoor-1.jpg', category: 'seniors', title: 'Emma - Nature Session', description: 'Autumn outdoor portrait with golden hour lighting', size: 'large' },
+    { id: 2, src: '/images/gallery/senior-urban-1.jpg', category: 'seniors', title: 'Marcus - Downtown', description: 'Urban portrait in the city', size: 'medium' },
+    { id: 3, src: '/images/gallery/graduation-1.jpg', category: 'seniors', title: 'Sophia - Graduation Day', description: 'Cap and gown celebration', size: 'tall' },
+    { id: 4, src: '/images/gallery/senior-outdoor-1.jpg', category: 'seniors', title: 'James - Park Session', description: 'Natural light senior portraits', size: 'small' },
+    { id: 5, src: '/images/gallery/senior-urban-1.jpg', category: 'seniors', title: 'Olivia - City Vibes', description: 'Modern urban aesthetic', size: 'wide' },
+    { id: 6, src: '/images/gallery/graduation-1.jpg', category: 'seniors', title: 'Ethan - Graduation', description: 'Campus graduation portraits', size: 'small' },
     // Underclass
-    { id: 7, src: '/images/gallery/school-group-1.jpg', category: 'underclass', title: 'Class of 2028', description: 'Annual class photo' },
-    { id: 8, src: '/images/gallery/school-group-1.jpg', category: 'underclass', title: 'Picture Day', description: 'Individual school portraits' },
-    { id: 9, src: '/images/gallery/family-portraits-1.jpg', category: 'underclass', title: 'Sibling Session', description: 'Family and sibling portraits' },
-    { id: 10, src: '/images/gallery/school-group-1.jpg', category: 'underclass', title: 'Group Photo', description: 'Student group photography' },
+    { id: 7, src: '/images/gallery/school-group-1.jpg', category: 'underclass', title: 'Class of 2028', description: 'Annual class photo', size: 'wide' },
+    { id: 8, src: '/images/gallery/school-group-1.jpg', category: 'underclass', title: 'Picture Day', description: 'Individual school portraits', size: 'medium' },
+    { id: 9, src: '/images/gallery/family-portraits-1.jpg', category: 'underclass', title: 'Sibling Session', description: 'Family and sibling portraits', size: 'tall' },
+    { id: 10, src: '/images/gallery/school-group-1.jpg', category: 'underclass', title: 'Group Photo', description: 'Student group photography', size: 'small' },
     // Sports
-    { id: 11, src: '/images/gallery/sports-team-1.jpg', category: 'sports', title: 'Soccer Champions', description: 'Team celebration photo' },
-    { id: 12, src: '/images/gallery/sports-team-1.jpg', category: 'sports', title: 'Basketball Team', description: 'Varsity team portraits' },
-    { id: 13, src: '/images/gallery/sports-team-1.jpg', category: 'sports', title: 'Track & Field', description: 'Athletic action shots' },
+    { id: 11, src: '/images/gallery/sports-team-1.jpg', category: 'sports', title: 'Soccer Champions', description: 'Team celebration photo', size: 'large' },
+    { id: 12, src: '/images/gallery/sports-team-1.jpg', category: 'sports', title: 'Basketball Team', description: 'Varsity team portraits', size: 'medium' },
+    { id: 13, src: '/images/gallery/sports-team-1.jpg', category: 'sports', title: 'Track & Field', description: 'Athletic action shots', size: 'small' },
     // Events
-    { id: 14, src: '/images/gallery/graduation-1.jpg', category: 'events', title: 'Graduation Ceremony', description: 'Commencement day celebration' },
-    { id: 15, src: '/images/gallery/family-portraits-1.jpg', category: 'events', title: 'Family Reunion', description: 'Multi-generational family portraits' },
-    { id: 16, src: '/images/gallery/senior-outdoor-1.jpg', category: 'events', title: 'Prom Night', description: 'Formal dance photography' }
+    { id: 14, src: '/images/gallery/graduation-1.jpg', category: 'events', title: 'Graduation Ceremony', description: 'Commencement day celebration', size: 'tall' },
+    { id: 15, src: '/images/gallery/family-portraits-1.jpg', category: 'events', title: 'Family Reunion', description: 'Multi-generational family portraits', size: 'wide' },
+    { id: 16, src: '/images/gallery/senior-outdoor-1.jpg', category: 'events', title: 'Prom Night', description: 'Formal dance photography', size: 'medium' }
 ];
+
+// Size configurations for masonry grid
+const sizeConfig = {
+    large: { gridColumn: 'span 2', gridRow: 'span 2', aspectRatio: '1/1' },
+    tall: { gridColumn: 'span 1', gridRow: 'span 2', aspectRatio: '3/5' },
+    wide: { gridColumn: 'span 2', gridRow: 'span 1', aspectRatio: '16/9' },
+    medium: { gridColumn: 'span 1', gridRow: 'span 1', aspectRatio: '4/5' },
+    small: { gridColumn: 'span 1', gridRow: 'span 1', aspectRatio: '1/1' }
+};
 
 const categories = [
     { value: 'all', label: 'All Photos' },
@@ -46,54 +55,74 @@ const categories = [
     { value: 'events', label: 'Events' }
 ];
 
-const GalleryImage = ({ item, onClick }) => (
-    <MotionBox
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.02 }}
-        onClick={onClick}
-        sx={{
-            position: 'relative',
-            borderRadius: 3,
-            overflow: 'hidden',
-            cursor: 'pointer',
-            aspectRatio: '4/5',
-            '&:hover .overlay': {
-                opacity: 1
-            }
-        }}
-    >
-        <Box
-            component="img"
-            src={item.src}
-            alt={item.title}
+const GalleryImage = ({ item, onClick, index }) => {
+    const config = sizeConfig[item.size] || sizeConfig.medium;
+
+    return (
+        <MotionBox
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            whileHover={{ scale: 1.03, zIndex: 10 }}
+            onClick={onClick}
             sx={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-            }}
-        />
-        <Box
-            className="overlay"
-            sx={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%)',
-                opacity: 0,
-                transition: 'opacity 0.3s ease',
-                display: 'flex',
-                alignItems: 'flex-end',
-                p: 2
+                gridColumn: config.gridColumn,
+                gridRow: config.gridRow,
+                position: 'relative',
+                borderRadius: 3,
+                overflow: 'hidden',
+                cursor: 'pointer',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+                transition: 'box-shadow 0.3s ease',
+                '&:hover': {
+                    boxShadow: '0 12px 40px rgba(0,0,0,0.25)'
+                },
+                '&:hover .overlay': {
+                    opacity: 1
+                },
+                '&:hover .image': {
+                    transform: 'scale(1.1)'
+                }
             }}
         >
-            <Typography variant="subtitle1" fontWeight={600} color="white">
-                {item.title}
-            </Typography>
-        </Box>
-    </MotionBox>
-);
+            <Box
+                className="image"
+                component="img"
+                src={item.src}
+                alt={item.title}
+                sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    aspectRatio: config.aspectRatio,
+                    transition: 'transform 0.6s ease'
+                }}
+            />
+            <Box
+                className="overlay"
+                sx={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 100%)',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    p: 3
+                }}
+            >
+                <Typography variant="h6" fontWeight={700} color="white" gutterBottom>
+                    {item.title}
+                </Typography>
+                <Typography variant="body2" color="grey.300">
+                    {item.description}
+                </Typography>
+            </Box>
+        </MotionBox>
+    );
+};
 
 const Gallery = () => {
     const [activeCategory, setActiveCategory] = useState('all');
@@ -192,18 +221,31 @@ const Gallery = () => {
                         </Tabs>
                     </Box>
 
-                    {/* Gallery Grid */}
+                    {/* Masonry Gallery Grid */}
                     <AnimatePresence mode="wait">
-                        <Grid container spacing={3} key={activeCategory}>
+                        <Box
+                            key={activeCategory}
+                            sx={{
+                                display: 'grid',
+                                gridTemplateColumns: {
+                                    xs: 'repeat(2, 1fr)',
+                                    sm: 'repeat(3, 1fr)',
+                                    md: 'repeat(4, 1fr)'
+                                },
+                                gridAutoRows: { xs: '180px', sm: '200px', md: '220px' },
+                                gap: 2,
+                                gridAutoFlow: 'dense'
+                            }}
+                        >
                             {filteredItems.map((item, index) => (
-                                <Grid item xs={6} sm={4} md={3} key={item.id}>
-                                    <GalleryImage
-                                        item={item}
-                                        onClick={() => openLightbox(index)}
-                                    />
-                                </Grid>
+                                <GalleryImage
+                                    key={item.id}
+                                    item={item}
+                                    index={index}
+                                    onClick={() => openLightbox(index)}
+                                />
                             ))}
-                        </Grid>
+                        </Box>
                     </AnimatePresence>
 
                     {/* Empty State */}
