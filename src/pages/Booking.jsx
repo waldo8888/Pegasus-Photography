@@ -21,14 +21,12 @@ const sessionTypes = [
         id: 'basic',
         name: 'Essential',
         duration: '30 min',
-        price: '$149',
         includes: ['1 location', '10 edited photos', 'Online gallery']
     },
     {
         id: 'standard',
         name: 'Signature',
         duration: '1 hour',
-        price: '$249',
         includes: ['2 locations', '25 edited photos', 'Online gallery', '1 outfit change'],
         popular: true
     },
@@ -36,7 +34,6 @@ const sessionTypes = [
         id: 'premium',
         name: 'Premium',
         duration: '2 hours',
-        price: '$399',
         includes: ['3 locations', '50 edited photos', 'Online gallery', 'Unlimited outfits', 'Print credit']
     }
 ];
@@ -201,8 +198,8 @@ const BookingWidget = ({ onClose, embedded = false }) => {
                                         />
                                     )}
                                     <Typography variant="h6" fontWeight={700}>{session.name}</Typography>
-                                    <Typography variant="h4" fontWeight={800} color="primary.main" sx={{ my: 1 }}>
-                                        {session.price}
+                                    <Typography variant="body2" color="primary.main" fontWeight={600} sx={{ my: 1 }}>
+                                        Contact for pricing
                                     </Typography>
                                     <Chip label={session.duration} size="small" icon={<AccessTimeIcon />} sx={{ mb: 2 }} />
                                     <List dense>
@@ -386,7 +383,7 @@ const BookingWidget = ({ onClose, embedded = false }) => {
                         </Typography>
                         <Stack spacing={1}>
                             <Typography variant="body2">
-                                <strong>Package:</strong> {booking.sessionType?.name} ({booking.sessionType?.price})
+                                <strong>Package:</strong> {booking.sessionType?.name}
                             </Typography>
                             <Typography variant="body2">
                                 <strong>Date:</strong> {booking.date && formatDate(booking.date)} at {booking.time}

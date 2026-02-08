@@ -143,7 +143,7 @@ const KinderGrad = () => {
                         Capture these fleeting moments before they grow up even more. Book a session for your school today.
                     </Typography>
                     <Stack direction="row" spacing={2} justifyContent="center">
-                        <Button variant="contained" color="white" sx={{ color: 'primary.main' }}>Contact Us</Button>
+                        <Button variant="contained" sx={{ bgcolor: 'white', color: 'primary.main', '&:hover': { bgcolor: 'grey.100' } }}>Contact Us</Button>
                         <Button variant="outlined" color="inherit">Order Photos</Button>
                     </Stack>
                 </Container>

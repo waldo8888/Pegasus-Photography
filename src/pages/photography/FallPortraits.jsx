@@ -47,7 +47,7 @@ const FallPortraits = () => {
                             Back to school means picture day is coming! We ensure a stress-free experience for schools and beautiful portraits for families.
                         </Typography>
                         <Stack direction="row" spacing={2}>
-                            <Button variant="contained" size="large" href="#parents" sx={{ bg: 'white', color: 'primary.main', px: 4, py: 1.5 }}>For Parents</Button>
+                            <Button variant="contained" size="large" href="#parents" sx={{ bgcolor: 'primary.main', color: 'white', px: 4, py: 1.5, '&:hover': { bgcolor: 'primary.dark' } }}>For Parents</Button>
                             <Button variant="outlined" color="inherit" size="large" href="#schools" sx={{ px: 4, py: 1.5 }}>For Schools</Button>
                         </Stack>
                     </MotionBox>

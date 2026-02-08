@@ -24,17 +24,17 @@ const benefits = [
     {
         icon: <CameraAltIcon sx={{ fontSize: 40 }} />,
         title: 'Free Mini Session',
-        desc: 'Get a complimentary portrait session (valued at $200)'
+        desc: 'Get a complimentary portrait session as our thank you'
     },
     {
         icon: <LocalOfferIcon sx={{ fontSize: 40 }} />,
-        title: '20% Off Prints',
-        desc: 'Exclusive discount on all print packages'
+        title: 'Exclusive Discounts',
+        desc: 'Special ambassador pricing on all print packages'
     },
     {
         icon: <CardGiftcardIcon sx={{ fontSize: 40 }} />,
         title: 'Referral Rewards',
-        desc: 'Earn $50 for every friend you refer who books'
+        desc: 'Earn rewards for every friend you refer who books'
     },
     {
         icon: <EmojiEventsIcon sx={{ fontSize: 40 }} />,
@@ -57,7 +57,7 @@ const testimonials = [
         name: 'Madison K.',
         school: 'Lincoln High School',
         year: 'Class of 2025',
-        quote: "Being a Pegasus Ambassador changed my senior year! The free session was amazing and I've already earned $150 in referral bonuses.",
+        quote: "Being a Pegasus Ambassador changed my senior year! The free session was amazing and I've already earned great referral rewards.",
         avatar: '/images/ambassadors/madison.jpg'
     },
     {

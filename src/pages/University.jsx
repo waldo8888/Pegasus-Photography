@@ -100,8 +100,7 @@ const University = () => {
                         <Grid item xs={12} md={4}>
                             <DetailCard
                                 title="Sitting Fee"
-                                price="$25.00"
-                                desc="Required to book your appointment. Covers photographer's time and equipment. Does not include prints or digital files."
+                                desc="A sitting fee is required to book your appointment. Contact us for current rates. Fee covers photographer's time and equipment."
                             />
                         </Grid>
                         <Grid item xs={12} md={4}>

@@ -32,7 +32,7 @@ const ProcessStep = ({ number, title, description }) => (
     </Paper>
 );
 
-const PackageCard = ({ name, price, features, featured }) => (
+const PackageCard = ({ name, features, featured }) => (
     <Paper
         elevation={featured ? 8 : 2}
         sx={{
@@ -47,7 +47,7 @@ const PackageCard = ({ name, price, features, featured }) => (
             <Chip label="Most Popular" color="primary" sx={{ position: 'absolute', top: -15, left: '50%', transform: 'translateX(-50%)' }} />
         )}
         <Typography variant="h4" gutterBottom fontWeight={700}>{name}</Typography>
-        <Typography variant="h3" color="primary" fontWeight={800} gutterBottom>{price}</Typography>
+        <Typography variant="body1" color="primary" fontWeight={600} gutterBottom>Contact us for pricing</Typography>
         <List dense>
             {features.map((feature, index) => (
                 <ListItem key={index} disableGutters>
@@ -66,7 +66,7 @@ const PackageCard = ({ name, price, features, featured }) => (
             to="/contact"
             sx={{ mt: 3 }}
         >
-            Select Package
+            Get a Quote
         </Button>
     </Paper>
 );
@@ -150,22 +150,20 @@ const Seniors = () => {
             <Box id="packages" sx={{ py: 10, bgcolor: 'background.paper' }}>
                 <Container>
                     <Box sx={{ textAlign: 'center', mb: 8 }}>
-                        <Typography variant="overline" color="primary" fontWeight={700}>Pricing</Typography>
+                        <Typography variant="overline" color="primary" fontWeight={700}>Our Packages</Typography>
                         <Typography variant="h3" gutterBottom>Senior Portrait Packages</Typography>
-                        <Typography color="text.secondary">All packages include a pre-session consultation.</Typography>
+                        <Typography color="text.secondary">All packages include a pre-session consultation. Contact us for custom pricing.</Typography>
                     </Box>
                     <Grid container spacing={4} justifyContent="center">
                         <Grid item xs={12} md={4}>
                             <PackageCard
                                 name="Essential"
-                                price="$299"
                                 features={['1-hour session', '1 location', '2 outfit changes', '15 edited digital images', 'Online gallery']}
                             />
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <PackageCard
                                 name="Signature"
-                                price="$499"
                                 featured
                                 features={['2-hour session', '2 locations', '4 outfit changes', '30 edited digital images', 'Online gallery', '8x10 print included']}
                             />
@@ -173,7 +171,6 @@ const Seniors = () => {
                         <Grid item xs={12} md={4}>
                             <PackageCard
                                 name="Premium"
-                                price="$799"
                                 features={['3-hour session', '3 locations', 'Unlimited outfits', '50 edited digital images', 'Online gallery', '16x20 canvas included']}
                             />
                         </Grid>
