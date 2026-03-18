@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Box, Typography, Button, IconButton, Container, Menu, MenuItem, Drawer, List, ListItem, ListItemText, Collapse, LinearProgress } from '@mui/material';
+import { AppBar, Toolbar, Box, Typography, Button, IconButton, Container, Menu, MenuItem, Drawer, List, ListItem, ListItemText, Collapse } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -7,6 +7,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import CloseIcon from '@mui/icons-material/Close';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Footer from './Footer';
+import BackToTop from './BackToTop';
 
 const Layout = ({ children }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -22,6 +23,7 @@ const Layout = ({ children }) => {
     const [yearbooksAnchor, setYearbooksAnchor] = useState(null);
     const [apparelAnchor, setApparelAnchor] = useState(null);
     const [resourcesAnchor, setResourcesAnchor] = useState(null);
+    const [parentsAnchor, setParentsAnchor] = useState(null);
 
     // Mobile accordion state
     const [openMobileMenus, setOpenMobileMenus] = useState({});
@@ -81,6 +83,14 @@ const Layout = ({ children }) => {
         schools: [
             { label: 'School Partnership', path: '/schools' },
             { label: 'School Services', path: '/schools/services' },
+            { label: 'Admin Portal', path: '/admin-portal' },
+        ],
+        parents: [
+            { label: 'Parent Portal', path: '/parent-portal' },
+            { label: 'Find Your School', path: '/find-school' },
+            { label: 'Prepay for Photos', path: '/prepay' },
+            { label: 'View Proofs', path: '/proofing' },
+            { label: 'Session Prep Guide', path: '/session-prep' },
         ],
         yearbooks: [
             { label: 'Elementary Yearbooks', path: '/yearbooks/elementary' },
@@ -94,8 +104,8 @@ const Layout = ({ children }) => {
         resources: [
             { label: 'Blog & Tips', path: '/blog' },
             { label: 'Inspiration Gallery', path: '/gallery' },
-            { label: 'Session Prep Guide', path: '/session-prep' },
             { label: 'Book a Session', path: '/booking' },
+            { label: 'PegasusShield Safety', path: '/safety' },
             { label: 'Ambassador Program', path: '/ambassadors' },
             { label: 'Careers', path: '/careers' },
         ],
@@ -144,6 +154,7 @@ const Layout = ({ children }) => {
 
                             {renderDropdown('Photography', photographyAnchor, setPhotographyAnchor, navItems.photography)}
                             {renderDropdown('For Schools', schoolsAnchor, setSchoolsAnchor, navItems.schools)}
+                            {renderDropdown('For Parents', parentsAnchor, setParentsAnchor, navItems.parents)}
                             {renderDropdown('Yearbooks', yearbooksAnchor, setYearbooksAnchor, navItems.yearbooks)}
                             {renderDropdown('Apparel', apparelAnchor, setApparelAnchor, navItems.apparel)}
                             {renderDropdown('Resources', resourcesAnchor, setResourcesAnchor, navItems.resources)}
@@ -155,17 +166,17 @@ const Layout = ({ children }) => {
                                 variant="contained"
                                 color="primary"
                                 component={Link}
-                                to="/contact"
+                                to="/find-school"
                                 sx={{ ml: 2, borderRadius: '50px', px: 3 }}
                             >
-                                Contact
+                                Find Your School
                             </Button>
                         </Box>
 
                         {/* Mobile Menu Icon */}
                         <IconButton
                             color="inherit"
-                            aria-label="open drawer"
+                            aria-label="open navigation menu"
                             edge="start"
                             onClick={handleMobileToggle}
                             sx={{ display: { md: 'none' } }}
@@ -185,7 +196,7 @@ const Layout = ({ children }) => {
             >
                 <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid', borderColor: 'grey.200' }}>
                     <Typography variant="h6" fontWeight={700}>Menu</Typography>
-                    <IconButton onClick={handleMobileToggle}><CloseIcon /></IconButton>
+                    <IconButton onClick={handleMobileToggle} aria-label="close navigation menu"><CloseIcon /></IconButton>
                 </Box>
                 <List sx={{ pt: 2 }}>
                     <ListItem button component={Link} to="/about" onClick={handleMobileToggle}>
@@ -195,7 +206,7 @@ const Layout = ({ children }) => {
                     {Object.entries(navItems).map(([key, items]) => (
                         <React.Fragment key={key}>
                             <ListItem button onClick={() => toggleMobileMenu(key)}>
-                                <ListItemText primary={key.charAt(0).toUpperCase() + key.slice(1)} />
+                                <ListItemText primary={key === 'parents' ? 'For Parents' : key.charAt(0).toUpperCase() + key.slice(1)} />
                                 {openMobileMenus[key] ? <ExpandLess /> : <ExpandMore />}
                             </ListItem>
                             <Collapse in={openMobileMenus[key]} timeout="auto" unmountOnExit>
@@ -213,8 +224,8 @@ const Layout = ({ children }) => {
                     <ListItem button component={Link} to="/faq" onClick={handleMobileToggle}>
                         <ListItemText primary="FAQ" />
                     </ListItem>
-                    <ListItem button component={Link} to="/contact" onClick={handleMobileToggle}>
-                        <ListItemText primary="Contact" primaryTypographyProps={{ fontWeight: 700, color: 'primary.main' }} />
+                    <ListItem button component={Link} to="/find-school" onClick={handleMobileToggle}>
+                        <ListItemText primary="Find Your School" primaryTypographyProps={{ fontWeight: 700, color: 'primary.main' }} />
                     </ListItem>
                 </List>
             </Drawer>
@@ -226,6 +237,9 @@ const Layout = ({ children }) => {
 
             {/* Footer */}
             <Footer />
+
+            {/* Back to Top */}
+            <BackToTop />
         </Box>
     );
 };

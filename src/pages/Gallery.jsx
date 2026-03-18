@@ -96,7 +96,8 @@ const GalleryImage = ({ item, onClick, index }) => {
                     height: '100%',
                     objectFit: 'cover',
                     aspectRatio: config.aspectRatio,
-                    transition: 'transform 0.6s ease'
+                    transition: 'transform 0.6s ease',
+                    loading: 'lazy'
                 }}
             />
             <Box

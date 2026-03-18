@@ -188,21 +188,21 @@ const Seniors = () => {
                     <Grid container spacing={2} justifyContent="center">
                         {/* Masonry-style layout simulation */}
                         <Grid item xs={12} md={6}>
-                            <Box component="img" src="/images/gallery-1.jpg" sx={{ width: '100%', height: 600, objectFit: 'cover', borderRadius: 4, mb: 2 }} />
+                            <Box component="img" src="/images/gallery-1.jpg" loading="lazy" sx={{ width: '100%', height: 600, objectFit: 'cover', borderRadius: 4, mb: 2 }} />
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <Grid container spacing={2} justifyContent="center">
                                 <Grid item xs={6}>
-                                    <Box component="img" src="/images/gallery-2.jpg" sx={{ width: '100%', height: 290, objectFit: 'cover', borderRadius: 4 }} />
+                                    <Box component="img" src="/images/gallery-2.jpg" loading="lazy" sx={{ width: '100%', height: 290, objectFit: 'cover', borderRadius: 4 }} />
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Box component="img" src="/images/gallery-3.jpg" sx={{ width: '100%', height: 290, objectFit: 'cover', borderRadius: 4 }} />
+                                    <Box component="img" src="/images/gallery-3.jpg" loading="lazy" sx={{ width: '100%', height: 290, objectFit: 'cover', borderRadius: 4 }} />
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Box component="img" src="/images/gallery-4.jpg" sx={{ width: '100%', height: 290, objectFit: 'cover', borderRadius: 4 }} />
+                                    <Box component="img" src="/images/gallery-4.jpg" loading="lazy" sx={{ width: '100%', height: 290, objectFit: 'cover', borderRadius: 4 }} />
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Box component="img" src="/images/gallery-5.jpg" sx={{ width: '100%', height: 290, objectFit: 'cover', borderRadius: 4 }} />
+                                    <Box component="img" src="/images/gallery-5.jpg" loading="lazy" sx={{ width: '100%', height: 290, objectFit: 'cover', borderRadius: 4 }} />
                                 </Grid>
                             </Grid>
                         </Grid>
