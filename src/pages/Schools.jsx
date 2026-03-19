@@ -120,6 +120,65 @@ const Schools = () => {
                 </Container>
             </Box>
 
+            {/* Revenue Sharing */}
+            <Box sx={{ py: 10, bgcolor: '#f9fafb' }}>
+                <Container>
+                    <Grid container spacing={8} alignItems="center">
+                        <Grid item xs={12} md={6}>
+                            <Typography variant="overline" color="primary" fontWeight={700}>Revenue Sharing</Typography>
+                            <Typography variant="h3" gutterBottom fontWeight={700}>Earn While We Capture</Typography>
+                            <Typography color="text.secondary" paragraph sx={{ fontSize: '1.1rem' }}>
+                                Our partner schools earn a percentage of every photo order placed by their families. No quotas, no hidden conditions — just a transparent partnership that benefits everyone.
+                            </Typography>
+                            <Stack spacing={2} sx={{ mt: 3 }}>
+                                <Paper elevation={0} sx={{ p: 3, bgcolor: 'background.default', borderRadius: 3, display: 'flex', gap: 2, alignItems: 'center' }}>
+                                    <Box sx={{ width: 48, height: 48, borderRadius: 2, bgcolor: 'primary.main', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1.2rem' }}>$</Box>
+                                    <Box>
+                                        <Typography fontWeight={700}>Average $3,500/year</Typography>
+                                        <Typography variant="body2" color="text.secondary">earned by our partner schools through revenue sharing</Typography>
+                                    </Box>
+                                </Paper>
+                                <Paper elevation={0} sx={{ p: 3, bgcolor: 'background.default', borderRadius: 3, display: 'flex', gap: 2, alignItems: 'center' }}>
+                                    <Box sx={{ width: 48, height: 48, borderRadius: 2, bgcolor: 'primary.main', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1.2rem' }}>%</Box>
+                                    <Box>
+                                        <Typography fontWeight={700}>Transparent Commission</Typography>
+                                        <Typography variant="body2" color="text.secondary">clear percentage structure with no minimum thresholds</Typography>
+                                    </Box>
+                                </Paper>
+                            </Stack>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <Paper sx={{ p: 5, borderRadius: 4, textAlign: 'center', bgcolor: 'secondary.main', color: 'white' }}>
+                                <Typography variant="h6" sx={{ opacity: 0.8, mb: 1 }}>Your school could earn</Typography>
+                                <Typography variant="h1" fontWeight={800} sx={{ color: 'primary.main' }}>$3,500+</Typography>
+                                <Typography sx={{ opacity: 0.8, mt: 1 }}>per year with Pegasus revenue sharing</Typography>
+                                <Button variant="contained" size="large" href="#contact" sx={{ mt: 4, bgcolor: 'white', color: 'secondary.main', fontWeight: 700, '&:hover': { bgcolor: 'grey.100' } }}>
+                                    Get a Custom Quote
+                                </Button>
+                            </Paper>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+
+            {/* Safety & Compliance */}
+            <Box sx={{ py: 8 }}>
+                <Container>
+                    <Paper sx={{ p: 5, borderRadius: 4, bgcolor: 'rgba(224,43,32,0.03)', border: '1px solid', borderColor: 'rgba(224,43,32,0.1)', display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: 'center' }}>
+                        <Box sx={{ flex: 1 }}>
+                            <Typography variant="overline" color="primary" fontWeight={700}>PegasusShield</Typography>
+                            <Typography variant="h4" fontWeight={700} gutterBottom>Safety & Compliance</Typography>
+                            <Typography color="text.secondary">
+                                Every Pegasus photographer is background-checked and certified. We comply with PIPEDA and all provincial privacy regulations. Student data is encrypted and stored on Canadian servers.
+                            </Typography>
+                        </Box>
+                        <Button variant="contained" size="large" component="a" href="/safety" sx={{ whiteSpace: 'nowrap' }}>
+                            Learn About PegasusShield
+                        </Button>
+                    </Paper>
+                </Container>
+            </Box>
+
             {/* Testimonials */}
             <TestimonialCarousel
                 dark

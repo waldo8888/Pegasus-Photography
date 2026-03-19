@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, IconButton, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import PinterestIcon from '@mui/icons-material/Pinterest';
@@ -24,7 +23,6 @@ const FooterLink = ({ to, children }) => (
 const Footer = () => {
     return (
         <Box sx={{ bgcolor: '#0a0a0a', color: 'white', pt: 15, pb: 6, position: 'relative', overflow: 'hidden' }}>
-            {/* Large Background Text */}
             {/* Large Background Logo */}
             <Box
                 component="img"
@@ -57,13 +55,13 @@ const Footer = () => {
                             Premium school and senior portrait photography. Capturing moments that become cherished memories.
                         </Typography>
                         <Stack direction="row" spacing={1} sx={{ mt: 3 }}>
-                            <IconButton sx={{ color: 'grey.500', '&:hover': { color: 'white', bgcolor: 'primary.main' } }}>
+                            <IconButton aria-label="Follow us on Instagram" sx={{ color: 'grey.500', '&:hover': { color: 'white', bgcolor: 'primary.main' } }}>
                                 <InstagramIcon />
                             </IconButton>
-                            <IconButton sx={{ color: 'grey.500', '&:hover': { color: 'white', bgcolor: 'primary.main' } }}>
+                            <IconButton aria-label="Follow us on Facebook" sx={{ color: 'grey.500', '&:hover': { color: 'white', bgcolor: 'primary.main' } }}>
                                 <FacebookIcon />
                             </IconButton>
-                            <IconButton sx={{ color: 'grey.500', '&:hover': { color: 'white', bgcolor: 'primary.main' } }}>
+                            <IconButton aria-label="Follow us on Pinterest" sx={{ color: 'grey.500', '&:hover': { color: 'white', bgcolor: 'primary.main' } }}>
                                 <PinterestIcon />
                             </IconButton>
                         </Stack>
@@ -83,13 +81,14 @@ const Footer = () => {
 
                     <Grid item xs={6} md={2}>
                         <Typography variant="subtitle2" fontWeight={700} sx={{ mb: 2, color: 'grey.400', textTransform: 'uppercase', letterSpacing: 1 }}>
-                            Resources
+                            For Parents
                         </Typography>
                         <Stack spacing={1.5}>
-                            <FooterLink to="/blog">Blog & Tips</FooterLink>
-                            <FooterLink to="/gallery">Gallery</FooterLink>
+                            <FooterLink to="/find-school">Find Your School</FooterLink>
+                            <FooterLink to="/parent-portal">Parent Portal</FooterLink>
+                            <FooterLink to="/prepay">Prepay for Photos</FooterLink>
+                            <FooterLink to="/proofing">View Proofs</FooterLink>
                             <FooterLink to="/session-prep">Session Prep</FooterLink>
-                            <FooterLink to="/booking">Book a Session</FooterLink>
                         </Stack>
                     </Grid>
 
@@ -99,6 +98,7 @@ const Footer = () => {
                         </Typography>
                         <Stack spacing={1.5}>
                             <FooterLink to="/about">About Us</FooterLink>
+                            <FooterLink to="/safety">PegasusShield</FooterLink>
                             <FooterLink to="/faq">FAQ</FooterLink>
                             <FooterLink to="/contact">Contact</FooterLink>
                             <FooterLink to="/careers">Careers</FooterLink>
@@ -126,10 +126,10 @@ const Footer = () => {
                         © 2026 Pegasus School Images. All rights reserved.
                     </Typography>
                     <Stack direction="row" spacing={3}>
-                        <Typography component="a" href="#" sx={{ color: 'grey.600', fontSize: '0.8rem', '&:hover': { color: 'white' } }}>
+                        <Typography component={Link} to="/privacy" sx={{ color: 'grey.600', fontSize: '0.8rem', '&:hover': { color: 'white' } }}>
                             Privacy Policy
                         </Typography>
-                        <Typography component="a" href="#" sx={{ color: 'grey.600', fontSize: '0.8rem', '&:hover': { color: 'white' } }}>
+                        <Typography component={Link} to="/terms" sx={{ color: 'grey.600', fontSize: '0.8rem', '&:hover': { color: 'white' } }}>
                             Terms of Service
                         </Typography>
                     </Stack>
